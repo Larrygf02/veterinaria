@@ -5,7 +5,17 @@ import NuevaCita from './components/NuevaCita'
 
 class App extends Component {
   state = {
+    citas: []
+  }
 
+  crearNuevaCita = datos => {
+    //copiar el state actual 
+    const citas = [...this.state.citas, datos];
+    this.setState({
+      citas
+    })
+
+   //agregar el nueva 
   }
   render() {
     return (
@@ -13,7 +23,7 @@ class App extends Component {
           <Header titulo="Paciente veterinaria"></Header>
           <div className="row">
               <div className="col-md-10 mx-auto">
-               <NuevaCita></NuevaCita>  
+               <NuevaCita crearNuevaCita={this.crearNuevaCita}></NuevaCita>  
               </div>
           </div>
       </div>
